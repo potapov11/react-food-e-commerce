@@ -1,8 +1,11 @@
-export default function PizzaBlock() {
+export default function PizzaBlock({ title, price }) {
+	console.log('Вызов PizzaBlock');
+	// console.log(props);
+
 	return (
 		<div className="pizza-block">
 			<img className="pizza-block__image" src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg" alt="Pizza" />
-			<h4 className="pizza-block__title">Чизбургер-пицца</h4>
+			<h4 className="pizza-block__title">{title}</h4>
 			<div className="pizza-block__selector">
 				<ul>
 					<li className="active">тонкое</li>
@@ -15,7 +18,7 @@ export default function PizzaBlock() {
 				</ul>
 			</div>
 			<div className="pizza-block__bottom">
-				<div className="pizza-block__price">от 395 ₽</div>
+				<div className="pizza-block__price">от {price} ₽</div>
 				<div className="button button--outline button--add">
 					<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
