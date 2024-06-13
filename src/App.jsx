@@ -3,8 +3,7 @@ import Header from './components/Header';
 import Categories from './components/Categories';
 import Sort from './components/Sort';
 import PizzaBlock from './components/PizzaBlock';
-
-// const arr = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+import pizzasArr from './assets/pizzas.json';
 
 function App() {
 	return (
@@ -18,7 +17,10 @@ function App() {
 					</div>
 					<h2 className="content__title">Все пиццы</h2>
 					<div className="content__items">
-						<PizzaBlock title="Мексик" price="350" />
+						{pizzasArr.map((obj, index) => (
+							<PizzaBlock key={index} title={obj.title} price={obj.price} image={obj.imageUrl} sizes={obj.sizes} types={obj.types} />
+						))}
+						{/* <PizzaBlock title="Мексик" price="350" /> */}
 						{/* <PizzaBlock test="23423423" /> */}
 					</div>
 				</div>
