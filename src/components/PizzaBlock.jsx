@@ -11,9 +11,9 @@ export default function PizzaBlock({ title, price, image, sizes, types }) {
 			<h4 className="pizza-block__title">{title}</h4>
 			<div className="pizza-block__selector">
 				<ul>
-					{types.map((typeId) => {
+					{types.map((typeId, i) => {
 						return (
-							<li className={activeType === typeId ? 'active' : ''} onClick={() => setActiveTypes(typeId)}>
+							<li key={i} className={activeType === typeId ? 'active' : ''} onClick={() => setActiveTypes(typeId)}>
 								{typeNames[typeId]}
 							</li>
 						);
