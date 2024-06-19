@@ -4,13 +4,8 @@ import Categories from './components/Categories';
 import Sort from './components/Sort';
 import PizzaBlock from './components/PizzaBlock';
 import './scss/app.scss';
-// import items from './assets/pizzas.json';
 
 function App() {
-	// fetch('https://6672bf766ca902ae11b19b43.mockapi.io/items')
-	// 	.then((response) => response.json())
-	// 	.then((data) => console.log(data));
-
 	const [items, setItems] = React.useState([]);
 
 	useEffect(() => {
