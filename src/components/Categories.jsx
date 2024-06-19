@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-// import pizzasArr from '../assets/pizzas.json';
-
-// console.log(pizzasArr);
 
 const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
 
