@@ -2,15 +2,17 @@
 
 .pizza-block {
 	width: 280px;
+	margin: 0 auto;
 	text-align: center;
 	margin-bottom: 65px;
 
-	&:not(:nth-of-type(4n)) {
-		margin-right: 35px;
-	}
+	// &:not(:nth-of-type(4n)) {
+	// 	margin-right: 35px;
+	// }
 
 	&__image {
 		width: 260px;
+		height: 260px;
 	}
 
 	&__title {
@@ -64,5 +66,19 @@
 		font-size: 22px;
 		line-height: 27px;
 		letter-spacing: 0.015em;
+	}
+}
+
+@media (max-width: $mobile-width) {
+	.pizza-block {
+		width: 340px;
+		margin: 0 auto;
+		text-align: center;
+		margin-bottom: 65px;
+
+		&__image {
+			width: 300px;
+			height: 300px;
+		}
 	}
 }

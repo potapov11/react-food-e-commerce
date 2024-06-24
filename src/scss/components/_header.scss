@@ -30,3 +30,13 @@
 		}
 	}
 }
+
+@media (max-width: $mobile-width) {
+	.header {
+		&__logo {
+			p {
+				display: none;
+			}
+		}
+	}
+}

@@ -1,6 +1,7 @@
 @import '../variables.scss';
 
 .categories {
+	position: relative;
 	ul {
 		display: flex;
 
@@ -27,5 +28,13 @@
 				color: #fff;
 			}
 		}
+	}
+}
+
+@media (max-width: $desktop-width) {
+	.categories {
+		width: 100%;
+		overflow: auto;
+		scrollbar-width: none;
 	}
 }
