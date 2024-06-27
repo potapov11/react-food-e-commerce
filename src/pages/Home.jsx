@@ -5,9 +5,12 @@ import PizzaBlock from "../components/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 
 export const Home = () => {
-  const [categoryId, setCategoryId] = useState(0);
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
+  const [categoryId, setCategoryId] = useState(0);
+  const [sortType, setSortType] = React.useState(0);
+
+  console.log(sortType);
 
   useEffect(() => {
     setIsLoading(true);
@@ -23,8 +26,8 @@ export const Home = () => {
   return (
     <>
       <div className="content__top">
-        <Categories value={categoryId} onClickCategory={(i) => setCategoryId(i)} />
-        <Sort />
+        <Categories value={categoryId} onChangeCategory={(i) => setCategoryId(i)} />
+        <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
