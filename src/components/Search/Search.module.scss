@@ -1,0 +1,31 @@
+.root {
+	position: relative;
+	left: -50px;
+}
+
+.input {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	width: 300px;
+	border-radius: 10px;
+	font-size: 16px;
+	padding: 12px 20px;
+	transition: all 0.2s ease;
+
+	&:focus {
+		border: 1px solid rgba(0, 0, 0, 0.3);
+		width: 420px;
+	}
+}
+
+.input::placeholder {
+	padding-left: 20px;
+}
+
+.icon {
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 18px;
+	height: 18px;
+}
