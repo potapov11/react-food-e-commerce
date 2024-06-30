@@ -9,16 +9,12 @@
 	border-radius: 10px;
 	font-size: 16px;
 	padding: 12px 20px;
+	padding-left: 40px;
 	transition: all 0.2s ease;
 
 	&:focus {
 		border: 1px solid rgba(0, 0, 0, 0.3);
-		width: 420px;
 	}
-}
-
-.input::placeholder {
-	padding-left: 20px;
 }
 
 .icon {
@@ -28,4 +24,20 @@
 	transform: translateY(-50%);
 	width: 18px;
 	height: 18px;
+}
+
+.clear {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 18px;
+	height: 18px;
+	opacity: 0.3;
+	cursor: pointer;
+	transition: all 0.5s ease;
+
+	&:hover {
+		opacity: 0.7;
+	}
 }

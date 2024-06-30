@@ -4,7 +4,10 @@ import Sort from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
 
+import { useOutletContext } from 'react-router-dom';
+
 export const Home = () => {
+	const { searchValue } = useOutletContext();
 	const [items, setItems] = React.useState([]);
 	const [isLoading, setIsLoading] = React.useState(true);
 	const [categoryId, setCategoryId] = useState(0);
@@ -13,6 +16,8 @@ export const Home = () => {
 	const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
 	const sortBy = sortType.sortProperty.replace('-', '');
 	const category = categoryId > 0 ? `category=${categoryId}` : '';
+
+	console.log(searchValue, '...inHome');
 
 	useEffect(() => {
 		setIsLoading(true);
