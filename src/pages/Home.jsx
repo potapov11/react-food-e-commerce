@@ -16,19 +16,20 @@ export const Home = () => {
 	const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
 	const sortBy = sortType.sortProperty.replace('-', '');
 	const category = categoryId > 0 ? `category=${categoryId}` : '';
+	const search = searchValue ? `search=${searchValue}` : '';
 
 	console.log(searchValue, '...inHome');
 
 	useEffect(() => {
 		setIsLoading(true);
-		fetch(`https://6672bf766ca902ae11b19b43.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}`)
+		fetch(`https://6672bf766ca902ae11b19b43.mockapi.io/items?${category}&${search}&sortBy=${sortBy}&order=${order}`)
 			.then((res) => res.json())
 			.then((arr) => {
 				setIsLoading(false);
 				setItems(arr);
 			});
 		window.scrollTo(0, 0);
-	}, [categoryId, sortType]);
+	}, [categoryId, sortType, searchValue]);
 
 	const pizzas = items
 		.filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
