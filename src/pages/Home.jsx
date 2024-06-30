@@ -30,6 +30,11 @@ export const Home = () => {
 		window.scrollTo(0, 0);
 	}, [categoryId, sortType]);
 
+	const pizzas = items
+		.filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
+		.map((obj, index) => <PizzaBlock key={index} title={obj.title} price={obj.price} image={obj.imageUrl} sizes={obj.sizes} types={obj.types} />);
+	const skeletons = [...new Array(6)].map((_, i) => <Skeleton key={i} />);
+
 	return (
 		<>
 			<div className="content__top">
@@ -37,11 +42,7 @@ export const Home = () => {
 				<Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
 			</div>
 			<h2 className="content__title">Все пиццы</h2>
-			<div className="content__items">
-				{isLoading
-					? [...new Array(6)].map((_, i) => <Skeleton key={i} />)
-					: items.map((obj, index) => <PizzaBlock key={index} title={obj.title} price={obj.price} image={obj.imageUrl} sizes={obj.sizes} types={obj.types} />)}
-			</div>
+			<div className="content__items">{isLoading ? skeletons : pizzas}</div>
 		</>
 	);
 };
