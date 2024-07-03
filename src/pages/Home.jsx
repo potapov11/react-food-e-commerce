@@ -21,7 +21,7 @@ export const Home = () => {
 
 	useEffect(() => {
 		setIsLoading(true);
-		fetch(`https://6672bf766ca902ae11b19b43.mockapi.io/items?page=${currentPage}&limit=4${category}&${search}&sortBy=${sortBy}&order=${order}`)
+		fetch(`https://6672bf766ca902ae11b19b43.mockapi.io/items?page=${currentPage}&limit=4&${category}${search}&sortBy=${sortBy}&order=${order}`)
 			.then((res) => res.json())
 			.then((arr) => {
 				setIsLoading(false);
