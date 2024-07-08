@@ -1,15 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import type { PayloadAction } from '@reduxjs/toolkit';
 
-// export interface CounterState {
-// 	value: number;
-// }
-
-const CounterState = {
-	value: 0,
+const initialState = {
+	value: 10,
 };
 
-export const filterSlice = createSlice({
+export const counterSlice = createSlice({
 	name: 'filter',
 	initialState,
 	reducers: {
@@ -23,13 +18,18 @@ export const filterSlice = createSlice({
 		decrement: (state) => {
 			state.value -= 1;
 		},
-		incrementByAmount: (state, action: PayloadAction<number>) => {
+		doubleDecrement: (state) => {
+			state.value -= 2;
+		},
+		incrementByAmount: (state, action) => {
 			state.value += action.payload;
 		},
 	},
 });
 
+console.log(counterSlice.actions, '...counterSlice.actions...');
+
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { increment, decrement, incrementByAmount, doubleDecrement } = counterSlice.actions;
 
 export default counterSlice.reducer;
