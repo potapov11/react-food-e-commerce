@@ -12,6 +12,15 @@ function App() {
 
 	return (
 		<div className="wrapper">
+			<div>
+				<button aria-label="Increment value" onClick={() => dispatch(increment())}>
+					Increment
+				</button>
+				<span>{count}</span>
+				<button aria-label="Decrement value" onClick={() => dispatch(decrement())}>
+					Decrement
+				</button>
+			</div>
 			<SearchContext.Provider value={{ searchValue, setSearchValue }}>
 				<Header searchValue={searchValue} setSearchValue={setSearchValue} />
 				<div className="content">
