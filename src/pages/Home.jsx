@@ -10,7 +10,7 @@ export const Home = () => {
 	const { searchValue } = React.useContext(SearchContext);
 	const [items, setItems] = React.useState([]);
 	const [isLoading, setIsLoading] = React.useState(true);
-	const [categoryId, setCategoryId] = useState(0);
+	// const [categoryId, setCategoryId] = useState(0);
 	const [currentPage, setCurrentNumber] = useState(1);
 	const [sortType, setSortType] = React.useState({ name: 'популярности', sortProperty: 'rating' });
 
