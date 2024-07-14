@@ -10,18 +10,21 @@ import { Pagination } from '../components/Pagination';
 import { SearchContext } from '../App';
 
 export const Home = () => {
-	const categoryId = useSelector((state) => state.filter.categoryId);
+	const { categoryId, sort } = useSelector((state) => state.filter);
+	// const type = useSelector((state) => state.filter);
+
+	console.log(sort, '...sort');
+
+	// const sortType = sort.sortType;
 	const dispatch = useDispatch();
 
 	const { searchValue } = React.useContext(SearchContext);
 	const [items, setItems] = React.useState([]);
 	const [isLoading, setIsLoading] = React.useState(true);
-	// const [categoryId, setCategoryId] = useState(0);
 	const [currentPage, setCurrentNumber] = useState(1);
-	const [sortType, setSortType] = React.useState({ name: 'популярности', sortProperty: 'rating' });
 
-	const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
-	const sortBy = sortType.sortProperty.replace('-', '');
+	const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
+	const sortBy = sort.sortProperty.replace('-', '');
 	const category = categoryId > 0 ? `category=${categoryId}` : '';
 	const search = searchValue ? `search=${searchValue}` : '';
 
@@ -38,7 +41,7 @@ export const Home = () => {
 				setItems(arr);
 			});
 		window.scrollTo(0, 0);
-	}, [categoryId, sortType, searchValue, currentPage]);
+	}, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
 	const pizzas = items
 		.filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
@@ -49,7 +52,7 @@ export const Home = () => {
 		<>
 			<div className="content__top">
 				<Categories value={categoryId} onChangeCategory={onChangeCategory} />
-				<Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
+				<Sort />
 			</div>
 			<h2 className="content__title">Все пиццы</h2>
 			<div className="content__items">{isLoading ? skeletons : pizzas}</div>
